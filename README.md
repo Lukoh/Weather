@@ -14,7 +14,7 @@ FitpetTest 앱은 AdvancedAppArchitecture 및 LukohSplash 및 Android 최신 아
 
 약 3년 전부터 LiveData와 RxJava, RxKotlin을 사용하지 않고 Android 아키텍처 구성 요소와 Kotlin Coroutine 및 Flow를 사용하여 고성능 앱을 개발할 수 있다고 생각하여 AdvancedAppArchitecture 및 LukohSplash 를 개발하게 되었습니다.
 
-아래 내용들은 제가제 [Mediem](https://medium.com/@lukohnam) 에 올린 좋은 아키텍쳐 기반에서 앱을 개발 하는 방법들에 관한 기술글들입니다. 약 3년전 개발된 AppArchitecture  를 기반으로 LukohSplash 를 개발하였고, FitpetTest 앱은 LukohSplash 를 좀더 개선한 AdvancedAppArchitecture 를 기반으로 개발되었습니다. 제 기술 스택을 참고하시려면 [LukohSplahs][https://github.com/Lukoh/LukohSplash] 와 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 를 참고해 주십시요.
+아래 내용들은 제가제 [Mediem](https://medium.com/@lukohnam) 에 올린 좋은 아키텍쳐 기반에서 앱을 개발 하는 방법들에 관한 기술글들입니다. 약 3년전 개발된 AppArchitecture  를 기반으로 LukohSplash 를 개발하였고, FitpetTest 앱은 LukohSplash 를 좀더 개선한 AdvancedAppArchitecture 를 기반으로 개발되었습니다. 제 기술 스택을 참고하시려면 [LukohSplahs](https://github.com/Lukoh/LukohSplash) 와 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 를 참고해 주십시요.
 
 아래 내용은 제가 [Medium](https://medium.com/@lukohnam) 에 올린 기술관련 글들과 관련 된 내용입니다. 혹시 관심을 가지고 있으시면 방문하셔서 봐주시면 감사드리겠습니다.
 
