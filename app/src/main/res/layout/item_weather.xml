@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_10"
+    android:layout_marginEnd="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_4"
+    android:background="@drawable/shape_rounded1">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_28"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginStart="@dimen/dp_8"
+        android:adjustViewBounds="true"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:letterSpacing="0"
+        android:lineHeight="18sp"
+        android:textColor="@color/colorText3"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/weather_container"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date" >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/ic_day_snow" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:foregroundGravity="center"
+            android:adjustViewBounds="true"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0"
+            android:lineHeight="18sp"
+            android:textColor="@color/colorText2"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@+id/iv_picture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Light Cloud" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_max_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginEnd="@dimen/dp_6"
+            android:foregroundGravity="center"
+            android:adjustViewBounds="true"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:letterSpacing="0"
+            android:lineHeight="18sp"
+            android:textColor="@color/colorText2"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/tv_min_degree"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Max : 32 C" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_min_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:foregroundGravity="center"
+            android:adjustViewBounds="true"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:letterSpacing="0"
+            android:lineHeight="18sp"
+            android:textColor="@color/colorText2"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Min : 25 C" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
