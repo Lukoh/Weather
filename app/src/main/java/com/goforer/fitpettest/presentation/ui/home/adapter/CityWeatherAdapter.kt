@@ -3,20 +3,15 @@ package com.goforer.fitpettest.presentation.ui.home.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Typeface
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.goforer.base.extension.getHighlightSpanMap
-import com.goforer.base.extension.gone
 import com.goforer.base.extension.setSpans
-import com.goforer.base.extension.show
 import com.goforer.base.utils.temperature.DegreeConverter
 import com.goforer.base.utils.time.TimeConverter
 import com.goforer.base.view.holder.BaseViewHolder
@@ -24,9 +19,6 @@ import com.goforer.fitpettest.R
 import com.goforer.fitpettest.data.source.model.entity.home.response.WeatherInfo
 import com.goforer.fitpettest.databinding.ItemCityNameBinding
 import com.goforer.fitpettest.databinding.ItemWeatherBinding
-import com.goforer.fitpettest.presentation.ui.BaseFragment.Companion.CHICAGO
-import com.goforer.fitpettest.presentation.ui.BaseFragment.Companion.LONDON
-import com.goforer.fitpettest.presentation.ui.BaseFragment.Companion.SEOUL
 
 class CityWeatherAdapter(
     private val context: Context

@@ -15,7 +15,6 @@ class GetCityWeatherRepository
 constructor() : Repository<Resource>() {
     override fun handle(viewModelScope: CoroutineScope, query: Query) = object :
         DataMediator<CityWeatherResponse>(viewModelScope, false) {
-        override fun load() =
-            restAPI.getCityWeather(query.args[0] as String, ITEM_COUNT, API_KEY)
+        override fun load() = restAPI.getCityWeather(query.args[0] as String, ITEM_COUNT, API_KEY)
     }.asSharedFlow
 }
