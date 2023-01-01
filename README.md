@@ -30,6 +30,8 @@ Typically, the UI layer contains UI-related state and UI business logic. UI busi
 
 Please refer to [How to handle your internal business logic using ViewModel and UseCase to decouple the logic from UI module.](https://medium.com/@lukohnam/how-to-handle-your-internal-business-logic-using-viewmodel-and-usecase-to-decouple-the-logic-from-f20ee9f7e4a5)
 
+Please refer to [How to provide the custom back navigation handling behavior on Android 12 and higher.](https://medium.com/@lukohnam/how-to-provide-the-custom-navigation-handling-behavior-on-android-12-and-higher-62080cbaa9b6)
+
 Now let’s dive into my open-source project, AdvancedAppArchitecture, which is based on LukohSplash & the Android MVVM with Clean Architecture and the latest libraries like Jetpack.
 And I'm learning Jetpack Compose and will apply it to AdvancedAppArchitecture.
 
