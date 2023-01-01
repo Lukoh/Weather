@@ -10,6 +10,7 @@
     <color name="colorSeparator">#DEDEDE</color>
     <color name="colorDialogSeparator">#5C3C3C43</color>
     <color name="colorSystemOpaque">#DEDEDE</color>
+    <color name="colorSystemBlue">#007AFF</color>
     <color name="colorSystemGray1">#8E8E93</color>
     <color name="colorSystemGray2">#AEAEB2</color>
     <color name="colorSystemGray3">#C7C7CC</color>
@@ -28,4 +29,6 @@
     <color name="colorTransparent">#00000000</color>
     <color name="colorBg">#FFEEDA</color>
     <color name="colorHighLight">#F2F2F2</color>
+    <color name="colorDialogBtnText">@color/colorSystemBlue</color>
+    <color name="colorDlgBg">@color/colorSystemGray6</color>
 </resources>

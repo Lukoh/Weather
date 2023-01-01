@@ -1,9 +1,12 @@
 package com.goforer.weather.presentation.ui
 
 import android.content.Context
+import android.content.DialogInterface
+import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -12,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.goforer.base.extension.setSystemBarTextDark
+import com.goforer.base.view.dialog.NormalDialog
 import com.goforer.weather.R
 import com.goforer.weather.databinding.ActivityMainBinding
 import dagger.android.DispatchingAndroidInjector
@@ -29,6 +33,30 @@ open class MainActivity : AppCompatActivity(), HasAndroidInjector {
 
     override fun androidInjector() = dispatchingAndroidInjector
 
+    private val onBackPressedCallback: OnBackPressedCallback =
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (::navController.isInitialized) {
+                    val navHostFragment = supportFragmentManager.fragments.first()
+
+                    if (navHostFragment != null && navHostFragment.childFragmentManager.backStackEntryCount == 0) {
+                        moveTaskToBack(true)
+                    } else {
+                        navHostFragment?.childFragmentManager?.fragments?.let {
+                            if (it.isNotEmpty()) {
+                                if (navController.popBackStack().not())
+                                    moveTaskToBack(true)
+                                else
+                                    onBackPressedDispatcher.onBackPressed()
+                            } else
+                                showDefaultDialog("Something Wrong")
+                        }
+                    }
+                } else
+                    handleOnBackPressed()
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,6 +65,9 @@ open class MainActivity : AppCompatActivity(), HasAndroidInjector {
         window.setSystemBarTextDark()
         supportActionBar?.setDisplayShowTitleEnabled(false)
         init()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -44,6 +75,28 @@ open class MainActivity : AppCompatActivity(), HasAndroidInjector {
             navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
         else
             super.onSupportNavigateUp()
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (::navController.isInitialized) {
+            val navHostFragment = supportFragmentManager.fragments.first()
+
+            if (navHostFragment != null && navHostFragment.childFragmentManager.backStackEntryCount == 0) {
+                moveTaskToBack(true)
+            } else {
+                navHostFragment?.childFragmentManager?.fragments?.let {
+                    if (it.isNotEmpty()) {
+                        if (navController.popBackStack().not())
+                            moveTaskToBack(true)
+                        else
+                            onBackPressedDispatcher.onBackPressed()
+                    } else
+                        showDefaultDialog("Something Wrong")
+                }
+            }
+        } else
+            handleOnBackPressed()
     }
 
     private fun init() {
@@ -62,11 +115,46 @@ open class MainActivity : AppCompatActivity(), HasAndroidInjector {
         }
     }
 
+    private fun handleOnBackPressed() {
+        if (onBackPressedDispatcher.hasEnabledCallbacks()) {
+            onBackPressedDispatcher.onBackPressed()
+
+            return
+        }
+
+        @Suppress("DEPRECATION")
+        super.onBackPressed()
+    }
+
     internal fun hideKeyboard() {
         val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         currentFocus?.windowToken?.let {
             inputManager.hideSoftInputFromWindow(it, InputMethodManager.HIDE_NOT_ALWAYS)
         }
+    }
+
+    internal fun showDefaultDialog(
+        message: CharSequence, title: CharSequence? = null,
+        onDismiss: (() -> Unit)? = null
+    ) {
+        val builder = NormalDialog.Builder()
+
+        builder.setContext(this)
+        builder.setHorizontalMode(true)
+        title?.let {
+            builder.setTitle(title)
+        }
+        builder.setMessage(message)
+        builder.setPositiveButton(R.string.confirm) { _, _ ->
+        }
+
+        builder.setOnDismissListener(
+            DialogInterface.OnDismissListener {
+                onDismiss?.let { it1 -> it1() }
+            }
+        )
+        if (!supportFragmentManager.isDestroyed)
+            builder.show(supportFragmentManager)
     }
 }

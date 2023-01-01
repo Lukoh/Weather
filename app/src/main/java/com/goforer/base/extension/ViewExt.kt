@@ -195,3 +195,18 @@ fun getHighlightSpanMap(
 
     return mutableMapOf(Pair(textToHighlight, clickableSpan))
 }
+
+fun Dialog.setDefaultWindowTheme() {
+    window?.apply {
+        setLayout(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.MATCH_PARENT
+        )
+        addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        statusBarColor = Color.TRANSPARENT
+
+        setSystemBarTextDark()
+        setDimAmount(0.3f)
+    }
+}
