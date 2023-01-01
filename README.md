@@ -5,16 +5,16 @@
 </p>
 
 <p align="left">
-:eyeglasses: The FitpetTest contributor, Lukoh.
+:eyeglasses: The Weather contributor, Lukoh.
 </p><br>
 
-# FitpetTest
+# Weather
 
-FitpetTest 앱은 [AdvancedAppArchitecture](https://github.com/Lukoh/LukohSplash) 및 [LukohSplash](https://github.com/Lukoh/LukohSplash) 및 Android 최신 아키텍처 구성 요소인 Jetpack을 기반으로 하며 MVVM 디자인 패턴을 따르고 있습니다. 또한 FitpetTest 앱 아키텍처는 프리젠테이션 계층, 도메인 계층 및 리포지토리 계층으로 구성되어 있습니다. 그리고 FitpetTest App에는 Advanced Android App Architecture로 새로운 Android App 개발을 위한 최신 기술이 적용되었습니다.. 이러한 새로운 기술들이 안드로이드 앱이 확장되어 더욱 경쟁력 있고 일관성을 유지하도록 도와줍니다. 또한 FitpetTest App 의 모든 모듈에 Kotlin 언어를 적용하고 있으며 대부분의 코드가 Kotlin으로 작성되어 있습니다.
+Weather 앱은 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 및 [LukohSplash](https://github.com/Lukoh/LukohSplash) 및 Android 최신 아키텍처 구성 요소인 Jetpack을 기반으로 하며 MVVM 디자인 패턴을 따르고 있습니다. 또한 Weather 앱 아키텍처는 프리젠테이션 계층, 도메인 계층 및 리포지토리 계층으로 구성되어 있습니다. 그리고 Weather App에는 Advanced Android App Architecture로 새로운 Android App 개발을 위한 최신 기술이 적용되었습니다.. 이러한 새로운 기술들이 안드로이드 앱이 확장되어 더욱 경쟁력 있고 일관성을 유지하도록 도와줍니다. 또한 Weather App 의 모든 모듈에 Kotlin 언어를 적용하고 있으며 대부분의 코드가 Kotlin으로 작성되어 있습니다.
 
-약 3년 전부터 LiveData와 RxJava, RxKotlin을 사용하지 않고 Android 아키텍처 구성 요소와 Kotlin Coroutine 및 Flow를 사용하여 고성능 앱을 개발할 수 있다고 생각하여 AdvancedAppArchitecture 및 LukohSplash 를 개발하게 되었습니다.
+약 3년 전부터 LiveData와 RxJava, RxKotlin을 사용하지 않고 Android 아키텍처 구성 요소와 Kotlin Coroutine 및 Flow를 사용하여 고성능 앱을 개발할 수 있다고 생각하여 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 및 [LukohSplash](https://github.com/Lukoh/LukohSplash) 를 개발하게 되었습니다.
 
-아래 내용들은 제가제 [Mediem](https://medium.com/@lukohnam) 에 올린 좋은 아키텍쳐 기반에서 앱을 개발 하는 방법들에 관한 기술글들입니다. 약 3년전 개발된 AppArchitecture  를 기반으로 LukohSplash 를 개발하였고, FitpetTest 앱은 LukohSplash 를 좀더 개선한 AdvancedAppArchitecture 를 기반으로 개발되었습니다. 제 기술 스택을 참고하시려면 [LukohSplahs](https://github.com/Lukoh/LukohSplash) 와 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 를 참고해 주십시요.
+아래 내용들은 제가 제 [Mediem](https://medium.com/@lukohnam) 에 올린 좋은 아키텍쳐 기반에서 앱을 개발 하는 방법들에 관한 기술글들입니다. 약 3년전 개발된 AppArchitecture  를 기반으로 LukohSplash 를 개발하였고, Weather 앱은 LukohSplash 를 좀더 개선한 AdvancedAppArchitecture 를 기반으로 개발되었습니다. 제 기술 스택을 참고하시려면 [LukohSplahs](https://github.com/Lukoh/LukohSplash) 와 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 를 참고해 주십시요.
 
 아래 내용은 제가 [Medium](https://medium.com/@lukohnam) 에 올린 기술관련 글들과 관련 된 내용입니다. 혹시 관심을 가지고 있으시면 방문하셔서 봐주시면 감사드리겠습니다.
 
