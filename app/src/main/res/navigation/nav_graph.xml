@@ -7,9 +7,41 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="com.goforer.fitpettest.presentation.ui.home.HomeFragment"
+        android:name="com.goforer.weather.presentation.ui.home.HomeFragment"
         android:label="@string/home_fragment_label"
         tools:layout="@layout/fragment_home">
 
+        <action
+            android:id="@+id/action_HomeFragment_to_WeatherInfoFragment"
+            app:destination="@id/WeatherInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/WeatherInfoFragment"
+            app:popUpToInclusive="true"
+            app:restoreState="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/WeatherInfoFragment"
+        android:name="com.goforer.weather.presentation.ui.weather.WeatherInfoFragment"
+        android:label="@string/weather_info__fragment_label"
+        tools:layout="@layout/fragment_weather_info">
+
+        <action
+            android:id="@+id/action_WeatherInfoFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            app:popUpToSaveState="true"
+            app:restoreState="true" />
+
+        <argument
+            android:name="city"
+            app:argType="string" />
+
+        <argument
+            android:name="position"
+            app:argType="integer" />
     </fragment>
 </navigation>

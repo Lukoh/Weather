@@ -1,11 +1,17 @@
 <resources>
-    <string name="app_name">FitpetTest</string>
+    <string name="app_name">Weather</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="home_fragment_label">Weather Forecast</string>
+    <string name="weather_info__fragment_label">Weather Info</string>
 
     <string name="max">Max : %s °C</string>
     <string name="min">Min : %s °C</string>
     <string name="today">%s : Today</string>
     <string name="tomorrow">%s : Tomorrow</string>
+
+    <string name="weather_day">%s : %s</string>
+    <string name="sunrise_time">Sunrise Time : %s</string>
+    <string name="sunset_time">Sunset Time : %s</string>
+    <string name="weather_search">Weather Search</string>
 </resources>

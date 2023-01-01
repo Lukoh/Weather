@@ -9,7 +9,6 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorTransparent"
         android:translationZ="0dp"
         app:elevation="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,26 +28,115 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_20">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_home"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center_horizontal"
-                    android:letterSpacing="0"
-                    android:lineHeight="16sp"
-                    android:text="@string/home_fragment_label"
-                    android:textColor="@color/colorText2"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/search_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:background="@drawable/shape_rounded_search"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    tools:ignore="UnusedAttribute"
-                    tools:text="Home" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:background="@drawable/ic_search"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/input_keyword_container"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_36"
+                        android:layout_marginStart="@dimen/dp_6"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:layout_marginBottom="@dimen/dp_8"
+                        android:background="@color/colorTransparent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_close"
+                        app:layout_constraintStart_toEndOf="@+id/iv_search"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_hint"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_36"
+                            android:layout_alignParentBottom="true"
+                            android:fontFamily="sans-serif"
+                            android:gravity="start|center"
+                            android:text="@string/weather_search"
+                            android:textColor="@color/colorSecondary"
+                            android:textSize="16sp"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:ignore="TextContrastCheck"
+                            tools:text="@string/weather_search"
+                            tools:visibility="visible" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_weight="1"
+                            android:background="@color/colorTransparent"
+                            app:boxBackgroundMode="none"
+                            app:hintEnabled="false"
+                            app:hintTextAppearance="@style/InputPressHint"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/tv_input_keyword"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_36"
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/colorTransparent"
+                                android:fontFamily="sans-serif"
+                                android:gravity="start|center"
+                                android:imeOptions="actionSearch"
+                                android:maxLines="1"
+                                android:padding="0dp"
+                                android:paddingStart="0dp"
+                                android:paddingEnd="0dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorText2"
+                                android:textColorHint="@color/colorSecondary"
+                                android:textSize="16sp"
+                                android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                                tools:text="Weather Search" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:background="@drawable/ic_close"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/input_keyword_container"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -60,7 +148,7 @@
             android:layout_height="@dimen/dp_0.5"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="@dimen/dp_1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorSeparator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/app_bar"
             tools:visibility="visible" />

@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace 'com.goforer.fitpettest'
+    namespace 'com.goforer.weather'
     compileSdk 33
     buildToolsVersion "30.0.3"
 
@@ -20,7 +20,7 @@ android {
     useLibrary 'android.test.mock'
 
     defaultConfig {
-        applicationId "com.goforer.fitpettest"
+        applicationId "com.goforer.weather"
         minSdk 26
         targetSdk 33
         versionCode 1
@@ -156,7 +156,7 @@ android {
     productFlavors {
         prod {
             dimension "default"
-            manifestPlaceholders = [appNameGradle: "FitpetTest"]
+            manifestPlaceholders = [appNameGradle: "Weather"]
             manifestPlaceholders = [appLabel: "@string/app_name"]
             buildConfigField "String", "apiServer", "\"https://api.openweathermap.org/\""
         }
@@ -164,16 +164,16 @@ android {
         stg {
             dimension "default"
             applicationIdSuffix = ".stg"
-            manifestPlaceholders = [appNameGradle: "FitpetTest"]
-            manifestPlaceholders = [appLabel: "FitpetTest_Stg"]
+            manifestPlaceholders = [appNameGradle: "Weather"]
+            manifestPlaceholders = [appLabel: "Weather_Stg"]
             buildConfigField "String", "apiServer", "\"https://api.openweathermap.org/\""
         }
 
         dev {
             dimension "default"
             applicationIdSuffix = ".dev"
-            manifestPlaceholders = [appNameGradle: "FitpetTest_Dev"]
-            manifestPlaceholders = [appLabel: "FitpetTest_Dev"]
+            manifestPlaceholders = [appNameGradle: "Weather_Dev"]
+            manifestPlaceholders = [appLabel: "Weather_Dev"]
             buildConfigField "String", "apiServer", "\"https://api.openweathermap.org/\""
         }
     }

@@ -2,14 +2,13 @@ package com.goforer.base.extension
 
 import android.animation.AnimatorListenerAdapter
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
-import android.text.TextPaint
+import android.os.SystemClock
+import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.RelativeSizeSpan
@@ -18,10 +17,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 
 const val RECYCLER_VIEW_CACHE_SIZE = 21
+
+class SafeClickListener(
+    private val interval: Long,
+    private val onSafeCLick: (View) -> Unit
+) : View.OnClickListener {
+    private var lastTimeClicked: Long = 0
+
+    override fun onClick(v: View) {
+        if (SystemClock.elapsedRealtime() - lastTimeClicked > interval) {
+            lastTimeClicked = SystemClock.elapsedRealtime()
+            onSafeCLick(v)
+        }
+    }
+}
 
 fun Window.setSystemBarTextDark() {
     val view = findViewById<View>(android.R.id.content)
@@ -71,6 +86,24 @@ fun View.upShow(duration: Long = 500L) {
         .start()
 }
 
+/**
+ * Extension method to show a keyboard for View.
+ */
+fun View.showKeyboard() {
+    if (this.requestFocus()) {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    }
+}
+
+fun View.setSafeOnClickListener(interval: Long = 1200, onSafeClick: (View) -> Unit) {
+    val safeClickListener = SafeClickListener(interval = interval) {
+        onSafeClick(it)
+    }
+    setOnClickListener(safeClickListener)
+}
+
 fun TextView.setSpans(proportion: Float = 1.05F, spanMap: MutableMap<String, ClickableSpan>) {
     val tvt = text.toString()
     val ssb = SpannableStringBuilder(tvt)
@@ -95,6 +128,24 @@ fun TextView.setSpans(proportion: Float = 1.05F, spanMap: MutableMap<String, Cli
 
     setText(ssb, TextView.BufferType.SPANNABLE)
     movementMethod = LinkMovementMethod.getInstance()
+}
+
+fun EditText.addAfterTextChangedListener(
+    filter: InputFilter? = null,
+    onTextChanged: (String) -> Unit
+) {
+    if (filter != null)
+        this.filters = arrayOf(filter)
+
+    addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+            onTextChanged(s.toString())
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+    })
 }
 
 fun TextView.setTextUnderline() {

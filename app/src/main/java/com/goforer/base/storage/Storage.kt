@@ -7,7 +7,7 @@ import android.security.keystore.KeyProperties
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
-import com.goforer.fitpettest.presentation.Caller.logoutApp
+import com.goforer.weather.presentation.Caller.logoutApp
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject

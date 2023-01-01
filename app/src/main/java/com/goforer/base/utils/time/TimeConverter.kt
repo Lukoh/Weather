@@ -11,8 +11,12 @@ import java.time.Instant
 import java.util.*
 
 object TimeConverter {
-    private const val DATE_PATTERN_TIMEZONE = "EEE dd MMM"
+    private const val DATE_PATTERN = "EEE dd MMM"
+    private const val DATE_TIME_PATTERN_ = "EEE dd MMM HH:mm:ss"
 
     @SuppressLint("SimpleDateFormat")
-    fun convertTimestampToDate(timestamp: Long): String = SimpleDateFormat(DATE_PATTERN_TIMEZONE).format(Date.from(Instant.ofEpochSecond(timestamp)))
+    fun convertTimestampToDate(timestamp: Long): String = SimpleDateFormat(DATE_PATTERN).format(Date.from(Instant.ofEpochSecond(timestamp)))
+
+    @SuppressLint("SimpleDateFormat")
+    fun convertTimestampToDateTime(timestamp: Long): String = SimpleDateFormat(DATE_TIME_PATTERN_).format(Date.from(Instant.ofEpochSecond(timestamp)))
 }
