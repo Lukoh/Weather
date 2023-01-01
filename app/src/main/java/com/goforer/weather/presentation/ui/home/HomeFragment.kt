@@ -158,7 +158,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                                     setLoading(false)
                                     binding.rvWeather.show()
                                     if (!reloaded)
-                                        it.list.add(0, (fillCityName(keyword)))
+                                        it.list.add(0, fillCityName(keyword))
 
                                     cityWeatherAdapter.submitList(it.list)
                                 }
