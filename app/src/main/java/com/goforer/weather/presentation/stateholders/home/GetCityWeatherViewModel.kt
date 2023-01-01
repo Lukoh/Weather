@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.goforer.weather.data.Params
 import com.goforer.weather.domain.home.GetCityWeatherUseCase
-import com.goforer.weather.presentation.stateholders.MediatorViewModel
+import com.goforer.weather.presentation.stateholders.MediatorStatedViewModel
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -14,7 +14,7 @@ class GetCityWeatherViewModel
 constructor(
     useCase: GetCityWeatherUseCase,
     @Assisted private val params: Params
-) : MediatorViewModel(useCase, params) {
+) : MediatorStatedViewModel(useCase, params) {
     @AssistedFactory
     interface AssistedVMFactory {
         fun create(params: Params): GetCityWeatherViewModel

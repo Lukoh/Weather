@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-open class MediatorViewModel(private val useCase: RepoUseCase, params: Params) : ViewModel() {
+open class MediatorStatedViewModel(private val useCase: RepoUseCase, params: Params) : ViewModel() {
     /*
     val value = useCase.run(viewModelScope, params).flatMapLatest {
         flow {

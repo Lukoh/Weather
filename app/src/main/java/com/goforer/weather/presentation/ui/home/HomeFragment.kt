@@ -25,7 +25,7 @@ import com.goforer.weather.data.source.network.response.Status
 import com.goforer.weather.databinding.FragmentHomeBinding
 import com.goforer.weather.presentation.event.home.WeatherInfoEventBus
 import com.goforer.weather.presentation.event.home.WeathersEventBus
-import com.goforer.weather.presentation.stateholders.MediatorViewModel
+import com.goforer.weather.presentation.stateholders.MediatorStatedViewModel
 import com.goforer.weather.presentation.stateholders.home.GetCityWeatherViewModel
 import com.goforer.weather.presentation.ui.BaseFragment
 import com.goforer.weather.presentation.ui.MainActivity
@@ -47,7 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var lastPosition = 0
     private var pickedPosition = NONE_PICKED_POSITION
 
-    private var getCityWeatherViewModel: MediatorViewModel? = null
+    private var getCityWeatherViewModel: MediatorStatedViewModel? = null
 
     private var keyword = ""
 
@@ -135,7 +135,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
-    private fun createViewModel(city: String) : MediatorViewModel {
+    private fun createViewModel(city: String) : MediatorStatedViewModel {
         val viewModel = GetCityWeatherViewModel.provideFactory(
             getCityWeatherViewModelFactory, Params(Query(city, 15))
         ).create(GetCityWeatherViewModel::class.java)
@@ -144,7 +144,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return viewModel
     }
 
-    private fun submitWeathers(viewModel: MediatorViewModel, keyword: String,  reloaded: Boolean) {
+    private fun submitWeathers(viewModel: MediatorStatedViewModel, keyword: String, reloaded: Boolean) {
         view?.let {
             launchAndRepeatWithViewLifecycle {
                 viewModel.value.collectLatest  { resource ->
@@ -273,7 +273,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun createWeathersState(
-        viewModel: MediatorViewModel,
+        viewModel: MediatorStatedViewModel,
         keyword: String,
         firstPosition: Int,
         lastPosition: Int,

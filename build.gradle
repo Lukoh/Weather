@@ -3,7 +3,7 @@ buildscript {
     ext {
         kotlin_gradle_plugin_version = "1.7.20"
 
-        kotlin_version = "1.7.22"
+        kotlin_version = '1.8.0'
         kotlinx_version = '1.5.31'
         ktlint_version = '8.2.0'
 
@@ -35,7 +35,7 @@ buildscript {
 
         lottieVersion = '5.2.0'
 
-        dagger_version = '2.44'
+        dagger_version = '2.44.2'
 
         timber_version = '5.0.1'
 
