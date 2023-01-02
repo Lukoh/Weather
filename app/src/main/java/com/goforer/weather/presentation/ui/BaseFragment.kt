@@ -59,7 +59,6 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), Injectable {
         savedInstanceState: Bundle?
     ): View? {
         _binding = _binding ?: bindingInflater.invoke(inflater, container, false)
-        mainActivity = (activity as MainActivity?)!!
         (activity as MainActivity).supportActionBar?.hide()
         navController =
             (mainActivity.supportFragmentManager.fragments.first() as NavHostFragment).navController
@@ -83,6 +82,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), Injectable {
         super.onAttach(context)
 
         this.context = context
+        mainActivity = (context as MainActivity?)!!
         onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 handleBackPressed()
