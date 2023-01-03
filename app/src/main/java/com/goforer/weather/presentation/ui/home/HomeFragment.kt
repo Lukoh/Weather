@@ -32,6 +32,7 @@ import com.goforer.weather.presentation.ui.MainActivity
 import com.goforer.weather.presentation.ui.home.adapter.CityWeatherAdapter.Companion.VIEW_CITY_NAME_VIEW
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -148,11 +149,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         view?.let {
             launchAndRepeatWithViewLifecycle {
                 viewModel.value.collectLatest  { resource ->
-                    when (resource.getStatus()) {
+                    when (resource.status) {
                         Status.SUCCESS -> {
-                            resource.getData()?.let {
+                            resource.data?.let {
                                 @Suppress("UNCHECKED_CAST")
-                                val result = resource.getData() as? CityWeatherResponse
+                                val result = resource.data as? CityWeatherResponse
 
                                 result?.let {
                                     setLoading(false)
@@ -166,6 +167,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         }
 
                         Status.ERROR -> {
+                            Timber.d("Error Code : %s", resource.errorCode)
+                            Timber.d("Error Message : %s", resource.message)
                             setLoading(false)
                         }
 
