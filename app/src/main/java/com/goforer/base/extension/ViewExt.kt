@@ -14,7 +14,6 @@ import android.text.style.ClickableSpan
 import android.text.style.RelativeSizeSpan
 import android.text.style.UnderlineSpan
 import android.view.View
-import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -156,14 +155,14 @@ fun TextView.setTextUnderline() {
     this.text = content
 }
 
-fun getHighlightSpanMap(
+inline fun getHighlightSpanMap(
     textToHighlight: String,
     color: Int?,
     typeface: Typeface?,
     isUnderlineText: Boolean,
     bgColor: Int? = null,
     textSize: Float? = null,
-    onClickListener: (textView: View) -> Unit
+    crossinline onClickListener: (textView: View) -> Unit
 ): MutableMap<String, ClickableSpan> {
     val clickableSpan = object : ClickableSpan() {
         override fun onClick(textView: View) {
