@@ -10,7 +10,9 @@
 
 # Weather
 
-Weather 앱은 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 및 [LukohSplash](https://github.com/Lukoh/LukohSplash) 및 Android 최신 아키텍처 구성 요소인 Jetpack을 기반으로 하며 MVVM 디자인 패턴을 따르고 있습니다. 또한 Weather 앱 아키텍처는 프리젠테이션 계층, 도메인 계층 및 리포지토리 계층으로 구성되어 있습니다. 그리고 Weather App에는 Advanced Android App Architecture로 새로운 Android App 개발을 위한 최신 기술이 적용되었습니다.. 이러한 새로운 기술들이 안드로이드 앱이 확장되어 더욱 경쟁력 있고 일관성을 유지하도록 도와줍니다. 또한 Weather App 의 모든 모듈에 Kotlin 언어를 적용하고 있으며 대부분의 코드가 Kotlin으로 작성되어 있습니다.
+Weather 앱은 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 및 [LukohSplash](https://github.com/Lukoh/LukohSplash) 및 Android 최신 아키텍처 구성 요소인 Jetpack을 기반으로 하며 MVVM 디자인 패턴을 따르고 있습니다. 또한 Weather 앱 아키텍처는 프리젠테이션 계층, 도메인 계층 및 리포지토리 계층으로 구성되어 있습니다. 그리고 Weather App에는 Advanced Android App Architecture로 새로운 Android App 개발을 위한 최신 기술이 적용되었습니다.. 이러한 새로운 기술들이 안드로이드 앱이 확장되어 더욱 경쟁력 있고 일관성을 유지하도록 도와줍니다. 또한 Weather App 의 모든 모듈에 Kotlin 언어를 적용하고 있으며 대부분의 코드가 Kotlin으로 작성되어 있습니다. 
+
+Weather 앱은 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 기반으로 앱을 개발할 수 있다는 것을 보여주기 위한 Android 앱입니다. 또한 Clean Architecture & Clean Code 기반으로 개발되어 있고 앱을 확장하거나 유지보수를 좋게 하는 구조를 가지고 있습니다. 또한 테스트가 용이할 수 있도록 개발되어 있습니다. [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 기반으로 앱을 개발하면 비지니스 로직과 UI Layout 만 새로 적용하면 여러용도의 서로 다른 앱을 쉽게 안정성 있게, 그리고 빠르게 개발을 할수 았습니다.
 
 약 3년 전부터 LiveData와 RxJava, RxKotlin을 사용하지 않고 Android 아키텍처 구성 요소와 Kotlin Coroutine 및 Flow를 사용하여 고성능 앱을 개발할 수 있다고 생각하여 [AdvancedAppArchitecture](https://github.com/Lukoh/AdvancedAppArchitecture) 및 [LukohSplash](https://github.com/Lukoh/LukohSplash) 를 개발하게 되었습니다.
 
