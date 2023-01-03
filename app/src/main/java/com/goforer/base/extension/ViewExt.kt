@@ -26,7 +26,7 @@ const val RECYCLER_VIEW_CACHE_SIZE = 21
 
 class SafeClickListener(
     private val interval: Long,
-    private val onSafeCLick: (View) -> Unit
+    private inline val onSafeCLick: (View) -> Unit
 ) : View.OnClickListener {
     private var lastTimeClicked: Long = 0
 
@@ -97,10 +97,11 @@ fun View.showKeyboard() {
     }
 }
 
-fun View.setSafeOnClickListener(interval: Long = 1200, onSafeClick: (View) -> Unit) {
+inline fun View.setSafeOnClickListener(interval: Long = 1200, crossinline onSafeClick: (View) -> Unit) {
     val safeClickListener = SafeClickListener(interval = interval) {
         onSafeClick(it)
     }
+
     setOnClickListener(safeClickListener)
 }
 
@@ -130,9 +131,9 @@ fun TextView.setSpans(proportion: Float = 1.05F, spanMap: MutableMap<String, Cli
     movementMethod = LinkMovementMethod.getInstance()
 }
 
-fun EditText.addAfterTextChangedListener(
+inline fun EditText.addAfterTextChangedListener(
     filter: InputFilter? = null,
-    onTextChanged: (String) -> Unit
+    crossinline onTextChanged: (String) -> Unit
 ) {
     if (filter != null)
         this.filters = arrayOf(filter)
