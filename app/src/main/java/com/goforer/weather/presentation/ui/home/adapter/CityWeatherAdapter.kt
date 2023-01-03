@@ -24,7 +24,7 @@ import com.goforer.weather.databinding.ItemWeatherBinding
 
 class CityWeatherAdapter(
     private val context: Context,
-    private val onClicked: (itemView: View, item: WeatherInfo, position: Int) -> Unit,
+    private inline val onClicked: (itemView: View, item: WeatherInfo, position: Int) -> Unit,
 ) : ListAdapter<WeatherInfo, BaseViewHolder<WeatherInfo>>(CityWeatherDiffUtil) {
     private var _binding: ItemWeatherBinding? = null
     private val binding get() = _binding!!
