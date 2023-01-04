@@ -99,14 +99,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             showWeatherInfo(item, keyword, position)
         }
 
-        setRecyclerView(mainActivity, cityWeatherAdapter)
+        if (::cityWeatherAdapter.isInitialized)
+            setRecyclerView(mainActivity, cityWeatherAdapter)
     }
 
     private fun load() {
         view?.let {
-            if (::cityWeatherAdapter.isInitialized)
-                setCityWeatherAdapter()
-
+            setCityWeatherAdapter()
             weathersState.isNull({
                 with(binding) {
                     tvInputKeyword.isFocusable = true

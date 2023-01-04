@@ -46,10 +46,6 @@ abstract class BaseFragment<T : ViewBinding> : Fragment(), Injectable {
     companion object {
         internal const val FRAGMENT_TAG = "fragment_tag"
 
-        internal const val SEOUL = "Seoul"
-        internal const val LONDON = "London"
-        internal const val CHICAGO = "Chicago"
-
         const val NONE_PICKED_POSITION = -1
     }
 
