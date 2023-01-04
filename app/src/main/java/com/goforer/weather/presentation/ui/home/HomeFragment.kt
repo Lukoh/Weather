@@ -104,7 +104,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun load() {
         view?.let {
-            setCityWeatherAdapter()
+            if (::cityWeatherAdapter.isInitialized)
+                setCityWeatherAdapter()
+
             weathersState.isNull({
                 with(binding) {
                     tvInputKeyword.isFocusable = true
@@ -161,7 +163,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                                     if (!reloaded)
                                         it.list.add(0, fillCityName(keyword))
 
-                                    cityWeatherAdapter.submitList(it.list)
+                                    if (::cityWeatherAdapter.isInitialized)
+                                        cityWeatherAdapter.submitList(it.list)
                                 }
                             }
                         }
